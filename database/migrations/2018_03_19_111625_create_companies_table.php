@@ -18,7 +18,6 @@ class CreateCompaniesTable extends Migration
             $table->string('company_name');
             $table->string('company_email');
             $table->string('company_type');
-            $table->string('user_city');
             $table->string('subject');
             $table->string('file_name');
             $table->text('company_logo');

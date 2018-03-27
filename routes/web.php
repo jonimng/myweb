@@ -17,10 +17,10 @@ Route::get('/', function () {
 
 Auth::routes();
 Route::resource('home', 'HomeController');
-
+//Route::get('my-chart', 'ChartController@index');
 Route::middleware(['auth'])->group(function () {
 /*Route::get('/home', 'HomeController@index')->name('home');*/
-Route::get('/admin', 'AdminController@index')->name('admin');
+Route::get('/adminstrator', 'AdminController@index')->name('adminstrator');
 Route::get('/client', 'ClientController@index')->name('client');
 Route::resource('companies', 'CompaniesController');
 Route::resource('emails', 'EmailsController');
@@ -30,3 +30,8 @@ Route::resource('users', 'UsersController');
 Route::resource('home', 'HomeController');
 });
 
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});

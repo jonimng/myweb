@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable
+class User extends \TCG\Voyager\Models\User
 {
     use Notifiable;
 
@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'role','user_city','user_phone'
+        'name', 'email', 'password','user_city','user_phone'
     ];
 
     /**
@@ -44,7 +44,7 @@ class User extends Authenticatable
 
     public function isAdmin(){
 
-        if($this->role=='admin'){
+        if($this->role_id=='1'){
             return true;
         }
 
@@ -52,7 +52,7 @@ class User extends Authenticatable
     }
     public function isClient(){
 
-        if($this->role=='client'){
+        if($this->role_id=='0'){
             return true;
         }
 

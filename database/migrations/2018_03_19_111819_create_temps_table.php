@@ -15,7 +15,7 @@ class CreateTempsTable extends Migration
     {
         Schema::create('temps', function (Blueprint $table) {
             $table->increments('id');
-            $table->longText('response');
+            $table->longText('response')->nullable();
             $table->integer('file_id')->unsigned();
             $table->foreign('file_id')->references('id')->on('files')->onDelete('cascade');
             $table->timestamps();
